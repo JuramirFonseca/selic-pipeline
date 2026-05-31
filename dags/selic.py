@@ -4,6 +4,8 @@ from airflow.operators.python import PythonOperator
 from datetime import timedelta
 
 from include.bronze.selic_task1 import ingest
+from include.silver.selic_task2 import clean_silver
+from include.gold.selic_task3 import aggregate
 
 default_args = {
     "retries": 3,
@@ -32,4 +34,7 @@ with DAG(
             "date_end": "{{ params.date_end }}",
         }
     )
-    task1 
+    task2 = PythonOperator(task_id='transform', python_callable=clean_silver)
+    task3 = PythonOperator(task_id='aggregate', python_callable=aggregate)
+
+    task1 >> task2 >> task3

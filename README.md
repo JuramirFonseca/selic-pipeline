@@ -198,7 +198,7 @@ As checagens são executadas na camada Silver após as transformações:
 ```bash
 # 1. Clone o repositório
 git clone <url-do-repositorio>
-cd be-case
+cd selic-pipeline
 
 # 2. Inicialize os serviços (build + start)
 sh run.sh
