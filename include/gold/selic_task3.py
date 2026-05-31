@@ -62,6 +62,7 @@ def aggregate() -> None:
     )
 
     resultado = month.merge(anual, on="ano", how="left")
+    resultado["ano"] = resultado["ano"].astype(int)
     resultado["variacao_mensal"] = resultado["variacao_mensal"].round(4)
     resultado["media_mensal"] = resultado["media_mensal"].round(4)
     resultado["taxa_acumulada_anual"] = (

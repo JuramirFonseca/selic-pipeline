@@ -6,7 +6,7 @@ Pipeline de dados on-premise orquestrado com Apache Airflow para ingestão, tran
 
 ## 1. Descrição do Projeto
 
-Este pipeline consome dados reais da API pública do Banco Central do Brasil — especificamente a **Taxa SELIC diária** (série BCB SGS 11) — e os processa em três camadas conforme a arquitetura medallion: **Bronze → Silver → Gold**.
+Este pipeline consome dados reais da API pública do Banco Central do Brasil — especificamente a **Taxa SELIC diária** — e os processa em três camadas conforme a arquitetura medallion: **Bronze → Silver → Gold**.
 
 O ambiente é 100% on-premise, orquestrado com **Apache Airflow 3.1.0** e containerizado via **Docker Compose**. A DAG `Selic` é acionada manualmente (`schedule=None`), com parâmetros de data configuráveis pelo usuário diretamente na interface do Airflow.
 
